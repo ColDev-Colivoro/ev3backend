@@ -1,0 +1,276 @@
+--- Extracting text from: TI3041 - Ev.3.pdf ---
+ 
+Programación Backend – TI3041 
+Primavera 2025 
+1 
+ 
+Tecnologías de la Información y Ciberseguridad 
+Evaluación N°3: Programación Backend 
+ 
+ 
+  
+Actividades 
+1. Desarrollar la confección de 
+una aplicación web que 
+incluye la gestión de 
+colecciones y manejo de 
+sesiones.  
+Unidad de Aprendizaje 1:  
+Framework Backend. 
+ 
+Aprendizaje esperado 
+Codifica aplicaciones 
+web para dar soluciones 
+tentativas a una 
+problemática utilizando 
+un framewiork del lado 
+del servidor. 
+Evaluación 
+ Evaluación Sumativa 3 con 
+escala de apreciación. 
+ Ponderación 30% 
+ Trabajo Individual 
+ 
+I. Presentación 
+ 
+En esta actividad práctica desarrollarás un trabajo respondiendo a casos 
+respectivos de situaciones del rubro informático, información que será 
+proporcionada por parte del docente, el cual deben completar con las 
+diferentes partes que se especificarán y detallarán más adelante en esta guía 
+de trabajo. 
+ 
+ Criterios de evaluación  
+1. 2.1.1  Codifica funciones que realicen operaciones CRUD sobre una base de 
+datos según requerimiento. 
+ 
+2. 2.1.2  Configura conexión a una base de datos según requerimiento. 
+ 
+ 
+3. 2.1.3  Utiliza Sesiones de validación de acceso y estado de colecciones 
+según requerimiento, seleccionando métodos y procedimientos 
+establecidos 
+ 
+Programación Backend – TI3041 
+Primavera 2025 
+2 
+ 
+Tecnologías de la Información y Ciberseguridad 
+II. Instrucciones 
+ 
+1. Revisar el instrumento de evaluación sumativa, que se encuentra al final de este documento. (Escala adjunta) 
+2. Elabora la aplicación web respondiendo a los requerimientos entregados en la evaluación. 
+3. Entregar el proyecto por GitHub, compartiendo la URL en un bloc de notas adjuntando a la plataforma de INACAP. 
+ 
+ 
+“Recuerda que este trabajo será bajo la supervisión del docente a cargo de la asignatura y lo más 
+importante, no puedes faltar y/o posponer tu entrega” 
+ 
+III. Actividades 
+ 
+Usted, como futuro Técnico de Nivel Superior Analista Programador de INACAP en la región del Biobío, deberá estar 
+preparado para incorporarse a industrias reales del entorno local, como el sector forestal, logística industrial, 
+manufactura, transporte, puertos o servicios asociados. Estas organizaciones requieren soluciones tecnológicas que 
+permitan optimizar procesos, gestionar información crítica y mantener altos estándares de seguridad informática. 
+En este caso, la evaluación deberá simular un encargo real de una empresa del sector industrial forestal, donde deberá 
+desarrollar una Aplicación Web para gestionar información operativa, integrando backend, base de datos y seguridad. 
+ 
+Requerimientos 
+Debe desarrollar individualmente una aplicación web funcional que permita gestionar información relevante para un 
+proceso real dentro de una empresa del rubro forestal/logístico del Biobío. 
+Por ejemplo, la empresa le solicita construir un sistema para gestionar: 
+ Registros de vehículos de transporte (camiones, camionetas, maquinaria). 
+ Control de ingreso y salida de cargas. 
+ Registro de operarios, turnos o cuadrillas. 
+ Control de inventario de insumos y repuestos. 
+ Gestión de mantenciones de maquinaria. 
+ Registro de visitas de seguridad o checklists operacionales. 
+Puedes elegir cualquiera de estos procesos o proponer uno similar, además deberás indagar elementos claves del 
+proceso seleccionado los cuales deberás modelar para poder desarrollar tu aplicación web. 
+  
+ 
+Programación Backend – TI3041 
+Primavera 2025 
+3 
+ 
+Tecnologías de la Información y Ciberseguridad 
+La aplicación debe incluir: 
+1. Conexión a base de datos industrial (MySQL). 
+2. CRUD completo sobre al menos dos entidades operacionales. 
+3. Sistema de sesiones (inicio/cierre y rutas). 
+4. Seguridad informática acorde a estándares de la industria: 
+o Contraseñas con hash. 
+o Validación de datos críticos. 
+o Manejo de errores. 
+Entregables 
+ Carpeta del proyecto en GitHub 
+ Txt en plataforma con la URL de GitHub 
+ Documentar correctamente el proyecto: comentarios y README.md (Bien explicado) 
+Consideraciones 
+ 
+ Debe tener al menos 4 commits que demuestren el avance progresivo del proyecto.  
+ 
+ 
+ 
+  
+ 
+Programación Backend – TI3041 
+Primavera 2025 
+4 
+ 
+Tecnologías de la Información y Ciberseguridad 
+ 
+ 
+Recursos de apoyo para las actividades  Instrumento(s) de evaluación 
+ 
+No Aplica 
+ 
+ 
+ 
+ 
+Escala de Apreciación 3: 
+Escala_Apreciación_EVA3 
+ 
+ 
+ 
+ 
+ 
+--- End of TI3041 - Ev.3.pdf ---
+
+--- Extracting text from: TI3041 - Ev.3 (1).pdf ---
+ 
+Programación Backend – TI3041 
+Primavera 2025 
+1 
+ 
+Tecnologías de la Información y Ciberseguridad 
+Evaluación N°3: Programación Backend 
+ 
+ 
+  
+Actividades 
+1. Desarrollar la confección de 
+una aplicación web que 
+incluye la gestión de 
+colecciones y manejo de 
+sesiones.  
+Unidad de Aprendizaje 1:  
+Framework Backend. 
+ 
+Aprendizaje esperado 
+Codifica aplicaciones 
+web para dar soluciones 
+tentativas a una 
+problemática utilizando 
+un framewiork del lado 
+del servidor. 
+Evaluación 
+ Evaluación Sumativa 3 con 
+escala de apreciación. 
+ Ponderación 30% 
+ Trabajo Individual 
+ 
+I. Presentación 
+ 
+En esta actividad práctica desarrollarás un trabajo respondiendo a casos 
+respectivos de situaciones del rubro informático, información que será 
+proporcionada por parte del docente, el cual deben completar con las 
+diferentes partes que se especificarán y detallarán más adelante en esta guía 
+de trabajo. 
+ 
+ Criterios de evaluación  
+1. 2.1.1  Codifica funciones que realicen operaciones CRUD sobre una base de 
+datos según requerimiento. 
+ 
+2. 2.1.2  Configura conexión a una base de datos según requerimiento. 
+ 
+ 
+3. 2.1.3  Utiliza Sesiones de validación de acceso y estado de colecciones 
+según requerimiento, seleccionando métodos y procedimientos 
+establecidos 
+ 
+Programación Backend – TI3041 
+Primavera 2025 
+2 
+ 
+Tecnologías de la Información y Ciberseguridad 
+II. Instrucciones 
+ 
+1. Revisar el instrumento de evaluación sumativa, que se encuentra al final de este documento. (Escala adjunta) 
+2. Elabora la aplicación web respondiendo a los requerimientos entregados en la evaluación. 
+3. Entregar el proyecto por GitHub, compartiendo la URL en un bloc de notas adjuntando a la plataforma de INACAP. 
+ 
+ 
+“Recuerda que este trabajo será bajo la supervisión del docente a cargo de la asignatura y lo más 
+importante, no puedes faltar y/o posponer tu entrega” 
+ 
+III. Actividades 
+ 
+Usted, como futuro Técnico de Nivel Superior Analista Programador de INACAP en la región del Biobío, deberá estar 
+preparado para incorporarse a industrias reales del entorno local, como el sector forestal, logística industrial, 
+manufactura, transporte, puertos o servicios asociados. Estas organizaciones requieren soluciones tecnológicas que 
+permitan optimizar procesos, gestionar información crítica y mantener altos estándares de seguridad informática. 
+En este caso, la evaluación deberá simular un encargo real de una empresa del sector industrial forestal, donde deberá 
+desarrollar una Aplicación Web para gestionar información operativa, integrando backend, base de datos y seguridad. 
+ 
+Requerimientos 
+Debe desarrollar individualmente una aplicación web funcional que permita gestionar información relevante para un 
+proceso real dentro de una empresa del rubro forestal/logístico del Biobío. 
+Por ejemplo, la empresa le solicita construir un sistema para gestionar: 
+ Registros de vehículos de transporte (camiones, camionetas, maquinaria). 
+ Control de ingreso y salida de cargas. 
+ Registro de operarios, turnos o cuadrillas. 
+ Control de inventario de insumos y repuestos. 
+ Gestión de mantenciones de maquinaria. 
+ Registro de visitas de seguridad o checklists operacionales. 
+Puedes elegir cualquiera de estos procesos o proponer uno similar, además deberás indagar elementos claves del 
+proceso seleccionado los cuales deberás modelar para poder desarrollar tu aplicación web. 
+  
+ 
+Programación Backend – TI3041 
+Primavera 2025 
+3 
+ 
+Tecnologías de la Información y Ciberseguridad 
+La aplicación debe incluir: 
+1. Conexión a base de datos industrial (MySQL). 
+2. CRUD completo sobre al menos dos entidades operacionales. 
+3. Sistema de sesiones (inicio/cierre y rutas). 
+4. Seguridad informática acorde a estándares de la industria: 
+o Contraseñas con hash. 
+o Validación de datos críticos. 
+o Manejo de errores. 
+Entregables 
+ Carpeta del proyecto en GitHub 
+ Txt en plataforma con la URL de GitHub 
+ Documentar correctamente el proyecto: comentarios y README.md (Bien explicado) 
+Consideraciones 
+ 
+ Debe tener al menos 4 commits que demuestren el avance progresivo del proyecto.  
+ 
+ 
+ 
+  
+ 
+Programación Backend – TI3041 
+Primavera 2025 
+4 
+ 
+Tecnologías de la Información y Ciberseguridad 
+ 
+ 
+Recursos de apoyo para las actividades  Instrumento(s) de evaluación 
+ 
+No Aplica 
+ 
+ 
+ 
+ 
+Escala de Apreciación 3: 
+Escala_Apreciación_EVA3 
+ 
+ 
+ 
+ 
+ 
+--- End of TI3041 - Ev.3 (1).pdf ---
+
