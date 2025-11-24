@@ -56,7 +56,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "ev3backend.wsgi.application"
 
 # Database configuration: use MySQL if environment variables are set, otherwise fallback to SQLite
-if os.getenv('MYSQL_USER') and os.getenv('MYSQL_PASSWORD'):
+if os.getenv('MYSQL_USER'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
