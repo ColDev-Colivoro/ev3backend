@@ -18,18 +18,18 @@ Sistema web desarrollado en **Django** para la gestión integral de inventario d
 ## 📸 Galería de Capturas
 
 ### Login y Autenticación
-![Pantalla de Login](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/login.png)
+![Pantalla de Login](src/login.png)
 
 ### Dashboard e Insumos
-![Vista Principal de Insumos](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/insumos.png)
+![Vista Principal de Insumos](src/insumos.png)
 
 ### Formularios
-![Formulario Nuevo Insumo](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/nuevoinsumoform.png)
+![Formulario Nuevo Insumo](src/nuevoinsumoform.png)
 
 ### Gestión de Movimientos
-![Listado de Movimientos](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/movimientos.png)
+![Listado de Movimientos](src/movimientos.png)
 
-![Registrar Nuevo Movimiento](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/nuevomovimientoform.png)
+![Registrar Nuevo Movimiento](src/nuevomovimientoform.png)
 
 ---
 
@@ -136,9 +136,46 @@ graph TB
     C --> D
     E --> H
     
+```
+    
     style A fill:#4CAF50
     style H fill:#2196F3
     style D fill:#FF9800
+```
+
+---
+
+## 📊 Diagrama Entidad-Relación
+
+```mermaid
+erDiagram
+    User ||--o{ Movimiento : "registra"
+    Insumo ||--o{ Movimiento : "tiene"
+
+    Insumo {
+        string codigo PK "Código único"
+        string nombre
+        string descripcion
+        int stock_actual
+        string ubicacion
+    }
+
+    Movimiento {
+        int id PK
+        string tipo "ENTRADA/SALIDA"
+        int cantidad
+        datetime fecha
+        int insumo_id FK
+        int usuario_id FK
+    }
+
+    User {
+        int id PK
+        string username
+        string email
+        string first_name
+        string last_name
+    }
 ```
 
 ---
