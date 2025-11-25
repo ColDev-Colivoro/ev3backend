@@ -18,18 +18,18 @@ Sistema web desarrollado en **Django** para la gestión integral de inventario d
 ## 📸 Galería de Capturas
 
 ### Login y Autenticación
-![Pantalla de Login](src/login.png)
+<img src="src/login.png" alt="Pantalla de Login" width="800">
 
 ### Dashboard e Insumos
-![Vista Principal de Insumos](src/insumos.png)
+<img src="src/insumos.png" alt="Vista Principal de Insumos" width="800">
 
 ### Formularios
-![Formulario Nuevo Insumo](src/nuevoinsumoform.png)
+<img src="src/nuevoinsumoform.png" alt="Formulario Nuevo Insumo" width="800">
 
 ### Gestión de Movimientos
-![Listado de Movimientos](src/movimientos.png)
+<img src="src/movimientos.png" alt="Listado de Movimientos" width="800">
 
-![Registrar Nuevo Movimiento](src/nuevomovimientoform.png)
+<img src="src/nuevomovimientoform.png" alt="Registrar Nuevo Movimiento" width="800">
 
 ---
 
