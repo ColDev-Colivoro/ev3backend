@@ -59,7 +59,7 @@ WSGI_APPLICATION = "ev3backend.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQL_DB_NAME', 'inventario_escolar'),
+        'NAME': os.getenv('MYSQL_DB_NAME', 'ev3backend'),
         'USER': os.getenv('MYSQL_USER', 'root'),
         'PASSWORD': os.getenv('MYSQL_PASSWORD', ''),
         'HOST': os.getenv('MYSQL_HOST', 'localhost'),
