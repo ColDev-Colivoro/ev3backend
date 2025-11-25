@@ -18,18 +18,18 @@ Sistema web desarrollado en **Django** para la gestión integral de inventario d
 ## 📸 Galería de Capturas
 
 ### Login y Autenticación
-![Pantalla de Login](src/login.png)
+![Pantalla de Login](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/login.png)
 
 ### Dashboard e Insumos
-![Vista Principal de Insumos](src/insumos.png)
+![Vista Principal de Insumos](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/insumos.png)
 
 ### Formularios
-![Formulario Nuevo Insumo](src/nuevoinsumoform.png)
+![Formulario Nuevo Insumo](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/nuevoinsumoform.png)
 
 ### Gestión de Movimientos
-![Listado de Movimientos](src/movimientos.png)
+![Listado de Movimientos](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/movimientos.png)
 
-![Registrar Nuevo Movimiento](src/nuevomovimientoform.png)
+![Registrar Nuevo Movimiento](https://raw.githubusercontent.com/ColDev-Colivoro/ev3backend/main/src/nuevomovimientoform.png)
 
 ---
 
