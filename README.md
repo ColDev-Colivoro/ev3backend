@@ -1,23 +1,95 @@
-# Sistema de Inventario Forestal (Evaluación 3)
+# 🌲 Sistema de Inventario Forestal (Evaluación 3)
 
-Este proyecto es una aplicación web desarrollada en **Django** para la gestión de inventario de insumos y repuestos forestales. Permite controlar el stock, registrar movimientos (entradas/salidas) y gestionar usuarios con autenticación segura.
+Sistema web desarrollado en **Django** para la gestión integral de inventario de insumos y repuestos forestales. Permite controlar stock, registrar movimientos de entrada/salida y gestionar usuarios con autenticación segura.
+
+---
 
 ## 📋 Características Principales
 
-*   **Gestión de Insumos**: Crear, listar, editar y eliminar insumos (CRUD).
-*   **Control de Movimientos**: Registrar entradas y salidas de stock.
-*   **Validación de Stock**: Impide registrar salidas si no hay stock suficiente.
-*   **Autenticación**: Login, Logout y Registro de usuarios.
-*   **Base de Datos**: Configurado para **MySQL** (Requisito Industrial).
-*   **Interfaz Amigable**: Uso de Bootstrap 5 e iconos para una mejor experiencia de usuario.
+- ✅ **Gestión de Insumos**: CRUD completo (Crear, Listar, Editar, Eliminar)
+- ✅ **Control de Movimientos**: Registro de entradas y salidas con validación de stock
+- ✅ **Validación Automática**: Previene salidas cuando no hay stock suficiente
+- ✅ **Sistema de Autenticación**: Login, Logout y Registro de usuarios
+- ✅ **Base de Datos MySQL**: Configuración industrial con soporte completo
+- ✅ **Interfaz Moderna**: Bootstrap 5 con diseño responsive
+
+---
+
+## 🏗️ Arquitectura del Sistema
+
+```mermaid
+graph TB
+    subgraph "Frontend"
+        A[Templates Django] --> B[Bootstrap 5]
+        B --> C[Interfaz de Usuario]
+    end
+    
+    subgraph "Backend Django"
+        D[Views] --> E[Models]
+        E --> F[Forms]
+        D --> G[Authentication]
+    end
+    
+    subgraph "Base de Datos"
+        H[(MySQL)]
+        H --> I[auth_user]
+        H --> J[inventario_insumo]
+        H --> K[inventario_movimiento]
+    end
+    
+    C --> D
+    E --> H
+    
+    style A fill:#4CAF50
+    style H fill:#2196F3
+    style D fill:#FF9800
+```
+
+---
+
+## 📊 Modelo de Base de Datos
+
+```mermaid
+erDiagram
+    auth_user ||--o{ inventario_movimiento : "registra"
+    inventario_insumo ||--o{ inventario_movimiento : "tiene"
+    
+    auth_user {
+        int id PK
+        varchar username UK
+        varchar password
+        varchar email
+        varchar first_name
+        varchar last_name
+        bool is_staff
+        bool is_active
+        datetime date_joined
+    }
+    
+    inventario_insumo {
+        bigint id PK
+        varchar codigo UK
+        varchar nombre
+        text descripcion
+        int stock_actual
+        varchar ubicacion
+    }
+    
+    inventario_movimiento {
+        bigint id PK
+        varchar tipo
+        int cantidad
+        datetime fecha
+        bigint insumo_id FK
+        int usuario_id FK
+    }
+```
 
 ---
 
 ## 🚀 Instalación y Configuración
 
-Sigue estos pasos para levantar el proyecto desde cero.
-
-### 1. Clonar el repositorio y crear entorno virtual
+### 1️⃣ Clonar el repositorio y crear entorno virtual
 
 ```bash
 git clone <url-del-repositorio>
@@ -33,42 +105,84 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
-### 2. Instalar dependencias
+### 2️⃣ Instalar dependencias
 
 ```bash
 pip install -r requirements.txt
 ```
-*(Incluye `mysqlclient` y `python-dotenv` necesarios para MySQL)*.
 
-### 3. Configuración de Base de Datos (MySQL)
+**Dependencias principales:**
+- `Django` - Framework web
+- `mysqlclient` - Conector MySQL
+- `python-dotenv` - Gestión de variables de entorno
 
-El proyecto requiere una base de datos MySQL. Se incluye un archivo `.env` en la raíz para configurar tus credenciales.
+### 3️⃣ Configuración de Base de Datos (MySQL)
 
-1.  Crea una base de datos vacía en tu servidor MySQL (ej. `inventario_escolar`).
-2.  Edita el archivo `.env` con tus datos:
+Edita el archivo `.env` en la raíz del proyecto con tus credenciales:
 
 ```ini
-MYSQL_DB_NAME=inventario_escolar
+MYSQL_DB_NAME=ev3backend
 MYSQL_USER=root
-MYSQL_PASSWORD=
+MYSQL_PASSWORD=tu_password
 MYSQL_HOST=localhost
 MYSQL_PORT=3306
 ```
 
-### 4. Inicializar la Base de Datos
+### 4️⃣ Inicializar la Base de Datos
 
-Ejecuta las migraciones para crear las tablas en MySQL:
+Ejecuta los scripts en el siguiente orden:
 
 ```bash
+# 1. Crear la base de datos
+python scripts/create_db.py
+
+# 2. Ejecutar el script SQL para crear las tablas
+python scripts/run_sql.py
+
+# 3. Aplicar migraciones de Django
 python manage.py migrate
+
+# 4. Crear un superusuario (opcional)
+python scripts/create_superuser.py
 ```
 
-### 5. Poblar con Datos de Prueba (Opcional)
+---
 
-Hemos incluido un comando para cargar datos iniciales (un usuario de prueba, un insumo y un movimiento):
+## 🔄 Flujo de Trabajo del Sistema
 
-```bash
-python manage.py populate_db
+```mermaid
+flowchart TD
+    Start([Usuario accede al sistema]) --> Login{¿Autenticado?}
+    Login -->|No| LoginPage[Página de Login]
+    LoginPage --> Auth[Autenticación]
+    Auth --> Dashboard
+    Login -->|Sí| Dashboard[Dashboard Principal]
+    
+    Dashboard --> Action{Acción}
+    Action -->|Ver| ListInsumos[Lista de Insumos]
+    Action -->|Crear| NewInsumo[Nuevo Insumo]
+    Action -->|Editar| EditInsumo[Editar Insumo]
+    Action -->|Movimiento| RegMovimiento[Registrar Movimiento]
+    
+    RegMovimiento --> ValidateStock{¿Stock suficiente?}
+    ValidateStock -->|Sí| SaveMovimiento[Guardar Movimiento]
+    ValidateStock -->|No| ErrorStock[Error: Stock insuficiente]
+    
+    SaveMovimiento --> UpdateStock[Actualizar Stock]
+    UpdateStock --> Dashboard
+    ErrorStock --> RegMovimiento
+    
+    NewInsumo --> SaveInsumo[Guardar Insumo]
+    SaveInsumo --> Dashboard
+    
+    EditInsumo --> UpdateInsumo[Actualizar Insumo]
+    UpdateInsumo --> Dashboard
+    
+    ListInsumos --> Dashboard
+    
+    style Dashboard fill:#4CAF50
+    style SaveMovimiento fill:#2196F3
+    style ErrorStock fill:#f44336
 ```
 
 ---
@@ -88,37 +202,139 @@ Accede a: **http://127.0.0.1:8000/**
 ## 📖 Guía de Uso
 
 ### 1. Inicio de Sesión
-Usa las credenciales creadas por el script `populate_db` o crea una cuenta nueva.
-*   **Usuario**: `testuser`
-*   **Contraseña**: `testpass`
-*   *(O Superusuario `admin` / `admin`)*
 
-![Login](file:///C:/Users/the_8/.gemini/antigravity/brain/8a249302-5670-42c7-ba63-4492c46618dd/registro_page_1764029942736.png)
-*(La pantalla de login incluye un botón para ver la contraseña y alertas con credenciales de prueba)*.
+Si ejecutaste `create_superuser.py`, usa las credenciales que configuraste.
+
+**Credenciales por defecto del superusuario:**
+- **Usuario**: `admin`
+- **Contraseña**: `admin123`
 
 ### 2. Gestión de Insumos
-En la página principal verás la lista de insumos. Puedes:
-*   **Agregar**: Botón "Nuevo Insumo".
-*   **Editar/Eliminar**: Botones de acción en cada fila.
-*   **Ver Stock**: El stock se actualiza automáticamente con los movimientos.
+
+En la página principal verás la lista de insumos disponibles:
+
+- **➕ Agregar**: Botón "Nuevo Insumo" para crear un nuevo registro
+- **✏️ Editar**: Modifica los datos de un insumo existente
+- **🗑️ Eliminar**: Elimina un insumo (solo si no tiene movimientos asociados)
+- **📊 Ver Stock**: El stock se actualiza automáticamente con cada movimiento
 
 ### 3. Registrar Movimientos
-Ve a la sección de movimientos para registrar entradas o salidas.
-*   Selecciona el insumo.
-*   Indica la cantidad.
-*   El sistema validará si hay suficiente stock para una salida.
+
+Accede a la sección de movimientos para registrar entradas o salidas:
+
+1. Selecciona el insumo
+2. Elige el tipo de movimiento (ENTRADA/SALIDA)
+3. Indica la cantidad
+4. El sistema validará automáticamente si hay stock suficiente para salidas
 
 ---
 
-## 🛠️ Tecnologías
+## 📁 Estructura del Proyecto
 
-*   **Backend**: Python, Django
-*   **Base de Datos**: MySQL / SQLite
-*   **Frontend**: HTML5, CSS3, Bootstrap 5
-*   **Control de Versiones**: Git
+```
+ev3backend/
+├── ev3backend/              # Configuración del proyecto Django
+│   ├── settings.py         # Configuración principal
+│   ├── urls.py             # Rutas principales
+│   └── wsgi.py             # Configuración WSGI
+├── inventario/             # Aplicación de inventario
+│   ├── models.py           # Modelos (Insumo, Movimiento)
+│   ├── views.py            # Vistas y lógica de negocio
+│   ├── forms.py            # Formularios
+│   ├── urls.py             # Rutas de la app
+│   └── templates/          # Plantillas HTML
+├── scripts/                # Scripts de utilidad
+│   ├── create_db.py        # Crea la base de datos
+│   ├── create_tables.sql   # Script SQL con todas las tablas
+│   ├── run_sql.py          # Ejecuta el script SQL
+│   └── create_superuser.py # Crea un superusuario
+├── manage.py               # Comando principal de Django
+├── requirements.txt        # Dependencias del proyecto
+├── .env                    # Variables de entorno (MySQL)
+└── README.md               # Este archivo
+```
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+| Categoría | Tecnología |
+|-----------|-----------|
+| **Backend** | Python 3.x, Django 5.x |
+| **Base de Datos** | MySQL 8.x |
+| **Frontend** | HTML5, CSS3, Bootstrap 5 |
+| **Autenticación** | Django Auth System |
+| **Control de Versiones** | Git |
+
+---
+
+## 📝 Scripts Disponibles
+
+### `scripts/create_db.py`
+Crea la base de datos MySQL configurada en el archivo `.env`.
+
+```bash
+python scripts/create_db.py
+```
+
+### `scripts/run_sql.py`
+Ejecuta el archivo `create_tables.sql` para crear todas las tablas necesarias.
+
+```bash
+python scripts/run_sql.py
+```
+
+### `scripts/create_superuser.py`
+Crea un superusuario para acceder al panel de administración.
+
+```bash
+python scripts/create_superuser.py
+```
+
+---
+
+## 🔒 Seguridad
+
+- ✅ Contraseñas hasheadas con algoritmo PBKDF2
+- ✅ Protección CSRF en todos los formularios
+- ✅ Validación de datos en el servidor
+- ✅ Variables sensibles en archivo `.env` (no versionado)
+
+---
+
+## 🐛 Solución de Problemas
+
+### Error: "Unknown database 'ev3backend'"
+**Solución:** Ejecuta `python scripts/create_db.py` para crear la base de datos.
+
+### Error: "Table doesn't exist"
+**Solución:** Ejecuta en orden:
+1. `python scripts/run_sql.py`
+2. `python manage.py migrate`
+
+### Error: "Access denied for user"
+**Solución:** Verifica las credenciales en el archivo `.env`.
 
 ---
 
 ## 👨‍💻 Autor
-**Jose Camilo Colivoro Uribe**
-Desarrollado para la Evaluación 3 de Backend.
+
+**Jose Camilo Colivoro Uribe**  
+Desarrollado para la Evaluación 3 de Backend  
+📧 Contacto: [tu-email@ejemplo.com]
+
+---
+
+## 📄 Licencia
+
+Este proyecto fue desarrollado con fines académicos para la asignatura de Backend.
+
+---
+
+## 🎯 Próximas Mejoras
+
+- [ ] API REST con Django REST Framework
+- [ ] Reportes en PDF
+- [ ] Gráficos de stock histórico
+- [ ] Notificaciones de stock bajo
+- [ ] Exportación a Excel
