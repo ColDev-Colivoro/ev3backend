@@ -90,7 +90,7 @@ STATIC_URL = "static/"
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Authentication redirects
-LOGIN_REDIRECT_URL = 'insumo_list'
-LOGOUT_REDIRECT_URL = 'login'
-LOGIN_URL = 'login'
+# Rutas de redirección para autenticación
+LOGIN_REDIRECT_URL = 'insumo_list'  # Redirige a /insumos/ después del login
+LOGOUT_REDIRECT_URL = 'login'  # Redirige al login después del logout
+LOGIN_URL = 'login'  # URL del login para @login_required
